@@ -13,10 +13,17 @@ public class SocketService {
         this.socket = new Socket("localhost", 7896);
     }
 
-    public String send(String message) throws IOException {
+    public void send(String message) throws IOException {
         DataOutputStream out = new DataOutputStream(this.socket.getOutputStream());
         out.writeUTF(message);
+    }
+
+    public String receive() throws IOException {
         DataInputStream in = new DataInputStream(this.socket.getInputStream());
         return in.readUTF();
+    }
+
+    public boolean isClosed(){
+        return socket.isClosed();
     }
 }
