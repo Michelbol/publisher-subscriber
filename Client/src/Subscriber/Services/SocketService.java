@@ -9,8 +9,8 @@ public class SocketService {
 
     private Socket socket;
 
-    public void startSocket() throws IOException {
-        this.socket = new Socket("localhost", 7896);
+    public void startSocket(Integer port) throws IOException {
+        this.socket = new Socket("localhost", port);
     }
 
     public void send(String message) throws IOException {

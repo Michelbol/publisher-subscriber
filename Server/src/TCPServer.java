@@ -7,7 +7,7 @@ public class TCPServer {
     static ArrayList interest = new ArrayList();
     public static void main (String[] args) {
         try{
-            int serverPort = 7896;
+            int serverPort = Integer.parseInt(args[0]);
             ServerSocket listenSocket = new ServerSocket(serverPort);
             while(true) {
                 Socket clientSocket = listenSocket.accept();

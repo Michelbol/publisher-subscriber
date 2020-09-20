@@ -1,20 +1,22 @@
 package Subscriber;
 
 import Subscriber.Services.SocketService;
+import Subscriber.Views.SetupPublisherView;
 import Subscriber.Views.SetupSubscriberView;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-public class TCPSubscriber {
+public class TCPPublisher {
     public static void main (String[] args) {
         int port = Integer.parseInt(args[0]);
         SocketService socketService = new SocketService();
-        SetupSubscriberView setupSubscriberView = new SetupSubscriberView();
-        String[] config = setupSubscriberView.exec();
+        SetupPublisherView setupPublisherView = new SetupPublisherView();
+        String[] config = setupPublisherView.exec();
         try {
             socketService.startSocket(port);
-            socketService.send(ClientType.SUBSCRIBER+"|"+config[0]+"|"+config[1]);
+            socketService.send(ClientType.PUBLISHER+"|"+config[0]+"|"+config[1]);
             while (!socketService.isClosed()){
                 String receive = socketService.receive();
                 System.out.println(receive);
