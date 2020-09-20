@@ -5,10 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Services/SocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/Services/SocketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +29,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1hZKypKjK8H0vhmeSmoLO1GAUr3" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -50,40 +50,100 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
+      <recent name="Subscriber.Views" />
       <recent name="Subscriber" />
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\" />
       <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\C" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.TCPClient">
-    <configuration name="TCPClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
+  <component name="RunManager" selected="Application.Publisher P1">
+    <configuration name="Publisher P1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
       <module name="Client" />
-      <option name="PROGRAM_PARAMETERS" value="bozo-deade localhost" />
+      <option name="PROGRAM_PARAMETERS" value="7897" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TCPServer" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Publisher P2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
+      <option name="PROGRAM_PARAMETERS" value="7899" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server I1" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <module name="Server" />
+      <option name="PROGRAM_PARAMETERS" value="7897" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server I2" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <module name="Server" />
+      <option name="PROGRAM_PARAMETERS" value="7898" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server I3" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <module name="Server" />
+      <option name="PROGRAM_PARAMETERS" value="7899" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server I4" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <module name="Server" />
+      <option name="PROGRAM_PARAMETERS" value="7900" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscriber A1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
+      <module name="Client" />
+      <option name="PROGRAM_PARAMETERS" value="A1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscriber A2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
+      <module name="Client" />
+      <option name="PROGRAM_PARAMETERS" value="A2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Subscriber A3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
+      <module name="Client" />
+      <option name="PROGRAM_PARAMETERS" value="A3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TCPServer 2" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="TCPServer" />
@@ -92,15 +152,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.TCPServer" />
-      <item itemvalue="Application.TCPClient" />
+      <item itemvalue="Application.Server I1" />
+      <item itemvalue="Application.Server I2" />
+      <item itemvalue="Application.Server I3" />
+      <item itemvalue="Application.Server I4" />
+      <item itemvalue="Application.TCPServer 2" />
+      <item itemvalue="Application.Subscriber A1" />
+      <item itemvalue="Application.Subscriber A2" />
+      <item itemvalue="Application.Subscriber A3" />
+      <item itemvalue="Application.Publisher P1" />
+      <item itemvalue="Application.Publisher P2" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.TCPClient" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -125,13 +201,74 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="226" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600641312208">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="226" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641312208" />
+    <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1600638177690">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600638177690" />
+    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1600641276692">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641276692" />
+    <state x="524" y="115" key="#xdebugger.evaluate" timestamp="1600640549155">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="524" y="115" key="#xdebugger.evaluate/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600640549155" />
+    <state width="1493" height="132" key="GridCell.Tab.0.bottom" timestamp="1600641876272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="132" key="GridCell.Tab.0.bottom/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641876272" />
+    <state width="1493" height="132" key="GridCell.Tab.0.center" timestamp="1600641876272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="132" key="GridCell.Tab.0.center/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641876272" />
+    <state width="1493" height="132" key="GridCell.Tab.0.left" timestamp="1600641876272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="132" key="GridCell.Tab.0.left/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641876272" />
+    <state width="1493" height="132" key="GridCell.Tab.0.right" timestamp="1600641876272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="132" key="GridCell.Tab.0.right/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600641876272" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1600640561646">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600640561646" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1600640561646">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600640561646" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1600640561646">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600640561646" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1600640561646">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600640561646" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1600638054158">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600638054158" />
+    <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1600636468262">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="145" width="579" height="534" key="find.popup/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600636468262" />
+    <state x="431" y="145" key="search.everywhere.popup" timestamp="1600636460658">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" key="search.everywhere.popup/0.0.1536.824/0.-1080.1280.680@0.0.1536.824" timestamp="1600636460658" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
