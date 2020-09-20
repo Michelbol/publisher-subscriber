@@ -19,12 +19,15 @@ public class SetupSubscriberView {
     public String[] exec(){
         this.startView();
         String name = this.askName();
-        if(name.equals("")){
+        if(name == null || name.equals("")){
             while(!this.confirm()){
                 this.askName();
             }
         }
         String interest = this.askInterest();
+        if(interest == null){
+            return new String[]{null, null};
+        }
         while(interest.equals("") ){
             this.required();
             this.askInterest();
@@ -33,7 +36,7 @@ public class SetupSubscriberView {
     }
 
     private boolean confirm(){
-        return JOptionPane.showConfirmDialog(null, "Tem certeja que não irá preencher "+ "Nome") == 1;
+        return JOptionPane.showConfirmDialog(null, "Tem certeja que não irá preencher "+ "Nome") == JOptionPane.YES_OPTION;
     }
 
     private void required(){

@@ -9,9 +9,11 @@ class Connection extends Thread {
     private DataInputStream in;
     private DataOutputStream out;
     private ArrayList<Subscriber> subscribers;
+    private Socket socket;
 
     Connection(Socket aClientSocket, ArrayList<Subscriber> subscribers) {
         try {
+            this.socket = aClientSocket;
             this.subscribers = subscribers;
             in = new DataInputStream(aClientSocket.getInputStream());
             out = new DataOutputStream(aClientSocket.getOutputStream());
@@ -25,7 +27,7 @@ class Connection extends Thread {
             String data = in.readUTF();
             String[] information = data.split("\\|");
             if(information[0].equals(ClientType.SUBSCRIBER.toString())){
-                Subscriber subscriber = new Subscriber(information[1], information[2]);
+                Subscriber subscriber = new Subscriber(information[1], information[2], socket);
                 this.subscribers.add(subscriber);
             }
             out.writeUTF(data);

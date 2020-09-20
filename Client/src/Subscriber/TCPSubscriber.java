@@ -12,6 +12,9 @@ public class TCPSubscriber {
         SocketService socketService = new SocketService();
         SetupSubscriberView setupSubscriberView = new SetupSubscriberView();
         String[] config = setupSubscriberView.exec();
+        if(config[1] == null){
+            return;
+        }
         try {
             socketService.startSocket(port);
             socketService.send(ClientType.SUBSCRIBER+"|"+config[0]+"|"+config[1]);

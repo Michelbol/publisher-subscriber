@@ -2,8 +2,6 @@ package Subscriber;
 
 import Subscriber.Services.SocketService;
 import Subscriber.Views.SetupPublisherView;
-import Subscriber.Views.SetupSubscriberView;
-
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.UnknownHostException;
