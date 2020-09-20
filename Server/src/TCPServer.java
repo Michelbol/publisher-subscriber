@@ -12,7 +12,6 @@ public class TCPServer {
             while(true) {
                 Socket clientSocket = listenSocket.accept();
                 Connection c = new Connection(clientSocket, subscribers);
-//                this.subscribers.stream().filter(subscriber -> subscriber.getInterest().equals(information[2]));
             }
         } catch(IOException e) {
             System.out.println("Listen:"+e.getMessage());

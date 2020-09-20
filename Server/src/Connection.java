@@ -4,6 +4,8 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class Connection extends Thread {
     private DataInputStream in;
@@ -41,5 +43,14 @@ class Connection extends Thread {
 
     public ArrayList<Subscriber> getSubscribers() {
         return subscribers;
+    }
+
+    private void sendMessageToSubscriberByInterest(String interest, String msg) throws IOException {
+        Set<Subscriber> subscribers = this.subscribers.stream()
+                .filter(subscriber -> subscriber.getInterest().equals(interest))
+                .collect(Collectors.toSet());
+        for (Subscriber subscriber: subscribers) {
+            new DataOutputStream(subscriber.getSocket().getOutputStream()).writeUTF(msg);
+        }
     }
 }
