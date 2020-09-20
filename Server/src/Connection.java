@@ -31,6 +31,9 @@ class Connection extends Thread {
             if(information[0].equals(ClientType.SUBSCRIBER.toString())){
                 Subscriber subscriber = new Subscriber(information[1], information[2], socket);
                 this.subscribers.add(subscriber);
+            } else
+            if(information[0].equals(ClientType.PUBLISHER.toString())){
+                sendMessageToSubscriberByInterest(information[1], information[2]);
             }
             out.writeUTF(data);
             System.out.println("Received: "+ data) ;
