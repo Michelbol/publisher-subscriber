@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae1d9a1d-c51d-4801-9141-03c6cbb98bbd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ClientType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TCPSubscriber">
+  <component name="RunManager" selected="Application.TCPServer">
     <configuration name="TCPServer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -112,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600213431979</updated>
       <workItem from="1600213435201" duration="5783000" />
-      <workItem from="1600304530225" duration="20638000" />
+      <workItem from="1600304530225" duration="24255000" />
     </task>
     <servers />
   </component>

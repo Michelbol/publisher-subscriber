@@ -1,3 +1,3 @@
 public enum ClientType {
-    SUBSCRIBER, PUBLISHER
+    SUBSCRIBER, PUBLISHER, ROUTER
 }
