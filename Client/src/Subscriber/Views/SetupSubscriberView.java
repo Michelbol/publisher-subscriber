@@ -24,11 +24,14 @@ public class SetupSubscriberView {
                 this.askName();
             }
         }
+        else name = name.replace("|", "");
+
         String interest = this.askInterest();
         while(interest.equals("") ){
             this.required();
             this.askInterest();
         }
+        interest = interest.replace("|", "");
         return new String[]{name, interest};
     }
 

@@ -23,11 +23,15 @@ public class SetupPublisherView {
             this.required("o interesse");
             interest = this.askInterest();
         }
+        interest = interest.replace("|", "");
+
         String message = this.askPublish();
         while(message.equals("") ){
             this.required("a publicação");
             message = this.askPublish();
         }
+        message = message.replace("|", "");
+
         return new String[]{interest, message};
     }
 
