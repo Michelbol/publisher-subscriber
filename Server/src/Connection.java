@@ -4,18 +4,22 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class Connection extends Thread {
     private DataInputStream in;
     private DataOutputStream out;
     private ArrayList<Subscriber> subscribers;
     private ArrayList<Router> routers;
+    private ArrayList<RouterConnection> routerConnections;
     private Socket socket;
 
-    Connection(Socket aClientSocket, ArrayList<Subscriber> subscribers, ArrayList<Router> routers) {
+    Connection(Socket aClientSocket, ArrayList<Subscriber> subscribers, ArrayList<Router> routers, ArrayList<RouterConnection> routerConnections) {
         try {
             this.subscribers = subscribers;
             this.routers = routers;
+            this.socket = aClientSocket;
             in = new DataInputStream(aClientSocket.getInputStream());
             out = new DataOutputStream(aClientSocket.getOutputStream());
             this.start();
@@ -25,21 +29,24 @@ class Connection extends Thread {
     }
     public void run(){
         try {
-            mapRouters();
             String data = in.readUTF();
             String[] information = data.split("\\|");
+
             if(information[0].equals(ClientType.SUBSCRIBER.toString())){
-                Subscriber subscriber = new Subscriber(information[1], information[2]);
+                Subscriber subscriber = new Subscriber(information[1], information[2], socket);
                 this.subscribers.add(subscriber);
+                for (RouterConnection routerConnection: routerConnections){
+                    Socket routerSocket = routerConnection.getSocket();
+                    DataOutputStream out = new DataOutputStream(routerSocket.getOutputStream());
+                    out.writeUTF(ClientType.ROUTER+"|"+information[1]+"|"+information[2]);
+                }
             } else
             if(information[0].equals(ClientType.PUBLISHER.toString())){
                 sendMessageToSubscriberByInterest(information[1], information[2]);
                 sendMessageToRouterByInterest(information[1], information[2]);
-            }
+            } else
             if(information[0].equals(ClientType.ROUTER.toString())){
-                //todo verificar se o router já existe, via nome
-                //Router router = new Router(information[1], information[2], socket);
-                //this.routers.add(router);
+                routers.add(new Router(information[2],socket));
             }
             out.writeUTF(data);
             System.out.println("Received: "+ data) ;
@@ -71,12 +78,6 @@ class Connection extends Thread {
 
         /*for (Subscriber subscriber: routers) {
             new DataOutputStream(subscriber.getSocket().getOutputStream()).writeUTF(msg);
-        }*/
-    }
-
-    private void mapRouters(){
-        /*if (routerPort.lenght == routers.lenght){
-
         }*/
     }
 }

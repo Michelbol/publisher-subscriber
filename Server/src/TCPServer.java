@@ -14,7 +14,9 @@ public class TCPServer {
     public static void main (String[] args) throws IOException {
         try{
             routerEnum = RouterEnum.valueOf(args[0]);
+            System.out.println(routerEnum.routerPort);
             listenSocket = new ServerSocket(routerEnum.routerPort);
+
 
             if (routerEnum.linkRouters.length >= 1) {
                 linkWithRouter();
@@ -31,6 +33,7 @@ public class TCPServer {
             SocketService socketService = new SocketService();
             socketService.startSocket(linkRouter.routerPort);
             routerConnection.add(new RouterConnection(linkRouter,socketService.getSocket()));
+            socketService.send("Olá");
         }
     }
 
@@ -38,7 +41,7 @@ public class TCPServer {
         try{
             while(true) {
                 Socket clientSocket = listenSocket.accept();
-                Connection c = new Connection(clientSocket, subscribers, routers);
+                Connection c = new Connection(clientSocket, subscribers, routers, routerConnection);
             }
         } catch(IOException e) {
             System.out.println("Listen:"+e.getMessage());
