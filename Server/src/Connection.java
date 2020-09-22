@@ -1,3 +1,5 @@
+import Services.SocketService;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -53,7 +55,10 @@ class Connection extends Thread {
                 else routers.add(new Router(information[2],socket));
             }
             out.writeUTF(data);
-            System.out.println("Received: " + data);
+            while(!this.socket.isClosed()){
+                data = in.readUTF();
+                out.writeUTF(data);
+            }
         } catch(EOFException e) {
             System.out.println("EOF:"+e.getMessage());
         } catch(IOException e) {
@@ -80,8 +85,8 @@ class Connection extends Thread {
                 .filter(subscriber -> subscriber.getInterest().equals(interest))
                 .collect(Collectors.toSet());
 
-        /*for (Subscriber subscriber: routers) {
-            new DataOutputStream(subscriber.getSocket().getOutputStream()).writeUTF(msg);
-        }*/
+        for (Router router: routers) {
+            new DataOutputStream(router.getSocket().getOutputStream()).writeUTF(msg);
+        }
     }
 }

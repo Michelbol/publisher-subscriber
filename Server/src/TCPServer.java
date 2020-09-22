@@ -31,9 +31,10 @@ public class TCPServer {
         for (RouterEnum linkRouter : routerEnum.linkRouters){
             SocketService socketService = new SocketService();
             socketService.startSocket(linkRouter.routerPort);
-            routerConnection.add(new RouterConnection(linkRouter,socketService.getSocket()));
+            routerConnection.add(new RouterConnection(linkRouter, socketService.getSocket()));
             socketService.send(ClientType.ROUTER+"|"+"Initialize|"+routerEnum.name());
-            System.out.println(socketService.receive());
+            System.out.println("Link Router Start "+socketService.receive());
+            System.out.println("Link Router Started At: "+linkRouter.name());
         }
     }
 

@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +73,19 @@
       <recent name="C:\Users\joaov\git\Facul\sistemaDistribuido\publisher-subscriber\Server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.I2">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TCPPublisher">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -155,13 +168,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="TCPPublisher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
+      <module name="Client" />
+      <option name="PROGRAM_PARAMETERS" value="I1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Subscriber.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,14 +190,16 @@
       <item itemvalue="Application.A1" />
       <item itemvalue="Application.A2" />
       <item itemvalue="Application.A3" />
+      <item itemvalue="Application.TCPPublisher" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TCPPublisher" />
         <item itemvalue="Application.A1" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -195,23 +213,25 @@
       <workItem from="1600213435201" duration="5783000" />
       <workItem from="1600304530225" duration="24255000" />
       <workItem from="1600725869351" duration="10643000" />
+      <workItem from="1600742419667" duration="1462000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600740614282">

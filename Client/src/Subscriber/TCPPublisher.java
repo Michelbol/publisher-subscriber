@@ -10,12 +10,12 @@ import java.net.UnknownHostException;
 
 public class TCPPublisher {
     public static void main (String[] args) {
-        int port = Integer.parseInt(args[0]);
+        RouterEnum routerEnum = RouterEnum.valueOf(args[0]);
         SocketService socketService = new SocketService();
         SetupPublisherView setupPublisherView = new SetupPublisherView();
         String[] config = setupPublisherView.exec();
         try {
-            socketService.startSocket(port);
+            socketService.startSocket(routerEnum.routerPort);
             socketService.send(ClientType.PUBLISHER+"|"+config[0]+"|"+config[1]);
             while (!socketService.isClosed()){
                 String receive = socketService.receive();
