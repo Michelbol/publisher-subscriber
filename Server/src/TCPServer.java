@@ -17,7 +17,6 @@ public class TCPServer {
             System.out.println(routerEnum.routerPort);
             listenSocket = new ServerSocket(routerEnum.routerPort);
 
-
             if (routerEnum.linkRouters.length >= 1) {
                 linkWithRouter();
             }
@@ -33,7 +32,8 @@ public class TCPServer {
             SocketService socketService = new SocketService();
             socketService.startSocket(linkRouter.routerPort);
             routerConnection.add(new RouterConnection(linkRouter,socketService.getSocket()));
-            socketService.send("Olá");
+            socketService.send(ClientType.ROUTER+"|"+"Initialize|"+routerEnum.name());
+            System.out.println(socketService.receive());
         }
     }
 

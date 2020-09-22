@@ -20,6 +20,7 @@ class Connection extends Thread {
             this.subscribers = subscribers;
             this.routers = routers;
             this.socket = aClientSocket;
+            this.routerConnections = routerConnections;
             in = new DataInputStream(aClientSocket.getInputStream());
             out = new DataOutputStream(aClientSocket.getOutputStream());
             this.start();
@@ -46,10 +47,13 @@ class Connection extends Thread {
                 sendMessageToRouterByInterest(information[1], information[2]);
             } else
             if(information[0].equals(ClientType.ROUTER.toString())){
-                routers.add(new Router(information[2],socket));
+                if (information[1].equals("Initialize")){
+                    routerConnections.add(new RouterConnection(RouterEnum.valueOf(information[2]),socket));
+                }
+                else routers.add(new Router(information[2],socket));
             }
             out.writeUTF(data);
-            System.out.println("Received: "+ data) ;
+            System.out.println("Received: " + data);
         } catch(EOFException e) {
             System.out.println("EOF:"+e.getMessage());
         } catch(IOException e) {
