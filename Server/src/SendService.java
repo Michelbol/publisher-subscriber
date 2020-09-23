@@ -26,9 +26,11 @@ class SendService {
 
     void sendSubscriberToRouters(String[] information) throws IOException {
         for (RouterConnection routerConnection: TCPServer.routerConnection){
-            Socket routerSocket = routerConnection.getSocket();
-            DataOutputStream out = new DataOutputStream(routerSocket.getOutputStream());
-            out.writeUTF(ClientType.ROUTER+"|"+TCPServer.routerEnum.name()+"|"+information[1]+"|"+information[2]);
+            if (routerConnection != null){
+                Socket routerSocket = routerConnection.getSocket();
+                DataOutputStream out = new DataOutputStream(routerSocket.getOutputStream());
+                out.writeUTF(ClientType.ROUTER+"|"+TCPServer.routerEnum.name()+"|"+information[1]+"|"+information[2]);
+            }
         }
     }
 }
