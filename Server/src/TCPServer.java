@@ -1,20 +1,17 @@
-import Services.SocketService;
-
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
 public class TCPServer {
-    private static ArrayList<Subscriber> subscribers = new ArrayList<Subscriber>();
-    private static ArrayList<Router> routers = new ArrayList<Router>();
-    private static ArrayList<RouterConnection> routerConnection = new ArrayList<RouterConnection>();
+    static ArrayList<Subscriber> subscribers = new ArrayList<>();
+    static ArrayList<Router> routers = new ArrayList<>();
+    static ArrayList<RouterConnection> routerConnection = new ArrayList<>();
+    static RouterEnum routerEnum;
     private static ServerSocket listenSocket;
-    private static RouterEnum routerEnum;
 
-    public static void main (String[] args) throws IOException {
+    public static void main (String[] args) {
         try{
             routerEnum = RouterEnum.valueOf(args[0]);
-            System.out.println(routerEnum.routerPort);
             listenSocket = new ServerSocket(routerEnum.routerPort);
 
             if (routerEnum.linkRouters.length >= 1) {
@@ -27,14 +24,9 @@ public class TCPServer {
         }
     }
 
-    private static void linkWithRouter() throws IOException{
+    private static void linkWithRouter() {
         for (RouterEnum linkRouter : routerEnum.linkRouters){
-            SocketService socketService = new SocketService();
-            socketService.startSocket(linkRouter.routerPort);
-            routerConnection.add(new RouterConnection(linkRouter, socketService.getSocket()));
-            socketService.send(ClientType.ROUTER+"|"+"Initialize|"+routerEnum.name());
-            System.out.println("Link Router Start "+socketService.receive());
-            System.out.println("Link Router Started At: "+linkRouter.name());
+            new LinkRouter(linkRouter);
         }
     }
 
@@ -42,7 +34,7 @@ public class TCPServer {
         try{
             while(true) {
                 Socket clientSocket = listenSocket.accept();
-                Connection c = new Connection(clientSocket, subscribers, routers, routerConnection);
+                new Connection(clientSocket);
             }
         } catch(IOException e) {
             System.out.println("Listen:"+e.getMessage());

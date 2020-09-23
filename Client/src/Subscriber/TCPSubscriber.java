@@ -16,8 +16,7 @@ public class TCPSubscriber {
             socketService.startSocket(routerEnum.routerPort);
             socketService.send(ClientType.SUBSCRIBER+"|"+config[0]+"|"+config[1]);
             while (!socketService.isClosed()){
-                String receive = socketService.receive();
-                System.out.println(receive);
+                socketService.receive();
             }
         }catch (UnknownHostException e){
             System.out.println("Sock:"+e.getMessage()) ;

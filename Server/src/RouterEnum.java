@@ -1,6 +1,4 @@
-import java.util.List;
-
-enum RouterEnum {
+public enum RouterEnum {
     I1(8000, new RouterEnum[]{}),
     I2(8002, new RouterEnum[]{I1}),
     I3(8003, new RouterEnum[]{}),

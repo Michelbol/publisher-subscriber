@@ -4,7 +4,11 @@
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ClientType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/RoutersEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/RouterEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Subscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,17 +64,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\" />
-      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\C" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\joaov\git\Facul\sistemaDistribuido\publisher-subscriber\Server" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Subscriber" />
       <recent name="Services" />
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joaov\git\Facul\sistemaDistribuido\publisher-subscriber\Server" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\" />
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\C" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TCPPublisher">
+  <component name="RunManager" selected="Application.P1">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -168,7 +172,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TCPPublisher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="P1" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
       <module name="Client" />
       <option name="PROGRAM_PARAMETERS" value="I1" />
@@ -190,11 +194,11 @@
       <item itemvalue="Application.A1" />
       <item itemvalue="Application.A2" />
       <item itemvalue="Application.A3" />
-      <item itemvalue="Application.TCPPublisher" />
+      <item itemvalue="Application.P1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TCPPublisher" />
+        <item itemvalue="Application.P1" />
         <item itemvalue="Application.A1" />
       </list>
     </recent_temporary>
@@ -213,7 +217,7 @@
       <workItem from="1600213435201" duration="5783000" />
       <workItem from="1600304530225" duration="24255000" />
       <workItem from="1600725869351" duration="10643000" />
-      <workItem from="1600742419667" duration="1462000" />
+      <workItem from="1600742419667" duration="10099000" />
     </task>
     <servers />
   </component>

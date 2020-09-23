@@ -2,7 +2,6 @@ package Subscriber;
 
 import Subscriber.Services.SocketService;
 import Subscriber.Views.SetupPublisherView;
-import Subscriber.Views.SetupSubscriberView;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -18,8 +17,7 @@ public class TCPPublisher {
             socketService.startSocket(routerEnum.routerPort);
             socketService.send(ClientType.PUBLISHER+"|"+config[0]+"|"+config[1]);
             while (!socketService.isClosed()){
-                String receive = socketService.receive();
-                System.out.println(receive);
+                socketService.receive();
             }
         }catch (UnknownHostException e){
             System.out.println("Sock:"+e.getMessage()) ;
