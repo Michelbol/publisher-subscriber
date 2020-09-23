@@ -17,7 +17,7 @@ public class TCPPublisher {
             socketService.startSocket(routerEnum.routerPort);
             socketService.send(ClientType.PUBLISHER+"|"+config[0]+"|"+config[1]);
             while (!socketService.isClosed()){
-                socketService.receive();
+                System.out.println("Recebido Mensagem: "+socketService.receive());
             }
         }catch (UnknownHostException e){
             System.out.println("Sock:"+e.getMessage()) ;

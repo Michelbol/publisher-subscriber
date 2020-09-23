@@ -5,11 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ClientType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/RoutersEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/RouterEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/LinkRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/SendService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +88,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.P1">
+  <component name="RunManager" selected="Application.A1">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -186,6 +185,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
+      <module name="Client" />
+      <option name="PROGRAM_PARAMETERS" value="I3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Subscriber.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.I1" />
       <item itemvalue="Application.I2" />
@@ -194,6 +207,7 @@
       <item itemvalue="Application.A1" />
       <item itemvalue="Application.A2" />
       <item itemvalue="Application.A3" />
+      <item itemvalue="Application.P2" />
       <item itemvalue="Application.P1" />
     </list>
     <recent_temporary>
@@ -217,7 +231,7 @@
       <workItem from="1600213435201" duration="5783000" />
       <workItem from="1600304530225" duration="24255000" />
       <workItem from="1600725869351" duration="10643000" />
-      <workItem from="1600742419667" duration="10099000" />
+      <workItem from="1600742419667" duration="16136000" />
     </task>
     <servers />
   </component>

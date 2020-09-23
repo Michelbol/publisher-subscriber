@@ -1,13 +1,22 @@
 import java.net.Socket;
-import java.util.List;
 
 public class Router {
     private String interest;
     private Socket socket;
+    private RouterEnum routerEnum;
 
-    public Router(String interest, Socket socket) {
+    public Router(String interest, Socket socket, RouterEnum routerEnum) {
         this.interest = interest;
         this.socket = socket;
+        this.routerEnum = routerEnum;
+    }
+
+    public RouterEnum getRouterEnum() {
+        return routerEnum;
+    }
+
+    public void setRouterEnum(RouterEnum routerEnum) {
+        this.routerEnum = routerEnum;
     }
 
     public String getInterest() {
