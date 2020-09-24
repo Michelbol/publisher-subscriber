@@ -40,4 +40,8 @@ public class TCPServer {
             System.out.println("Listen:"+e.getMessage());
         }
     }
+
+    static String[] splitMessage(String information){
+        return information.split("\\|");
+    }
 }

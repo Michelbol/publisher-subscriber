@@ -18,20 +18,26 @@ public class LinkRouter extends Thread {
             socketService.send(ClientType.ROUTER+"|Initialize|"+TCPServer.routerEnum.name());
             while (!socketService.isClosed()){
                 String msg = socketService.receive();
-                String[] information = msg.split("\\|");
+                String[] information = TCPServer.splitMessage(msg);
                 System.out.println("Recebeu informação de "+linkRouter.name()+" link router:"+msg);
                 if(information[0].equals("RESPONSE")){
+                    if(information[1].equals(ClientType.ROUTER.toString()) && information[2].equals("Initialize")){
+                        System.out.println("Socket inicializado com sucesso com o "+linkRouter.name());
+                    }
                     continue;
                 }
                 SendService sendService = new SendService();
+                String sendMsg;
+                String sendInterest;
                 if (information[0].equals("PUBLISHER")){
-                    sendService.sendMessageToSubscriberByInterest(information[1], information[2]);
-                    sendService.sendMessageToRouterByInterest(information[1], information[2]);
+                    sendMsg = information[1];
+                    sendInterest = information[2];
+                } else {
+                    sendMsg = information[2];
+                    sendInterest = information[3];
                 }
-                else {
-                    sendService.sendMessageToSubscriberByInterest(information[2], information[3]);
-                    sendService.sendMessageToRouterByInterest(information[2], information[3]);
-                }
+                sendService.sendMessageToSubscriberByInterest(sendMsg, sendInterest);
+                sendService.sendMessageToRouterByInterest(sendMsg, sendInterest);
             }
         } catch (IOException e) {
             e.printStackTrace();

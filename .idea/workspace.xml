@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/LinkRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/SendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.A1">
+  <component name="RunManager" selected="Application.I1">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -231,7 +228,7 @@
       <workItem from="1600213435201" duration="5783000" />
       <workItem from="1600304530225" duration="24255000" />
       <workItem from="1600725869351" duration="10643000" />
-      <workItem from="1600742419667" duration="16136000" />
+      <workItem from="1600742419667" duration="21419000" />
     </task>
     <servers />
   </component>
