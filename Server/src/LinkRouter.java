@@ -1,11 +1,12 @@
 import Services.SocketService;
+
 import java.io.IOException;
 
 public class LinkRouter extends Thread {
 
     private RouterEnum linkRouter;
 
-    LinkRouter(RouterEnum linkRouter){
+    LinkRouter(RouterEnum linkRouter) {
         this.linkRouter = linkRouter;
         this.start();
     }
@@ -15,13 +16,13 @@ public class LinkRouter extends Thread {
         try {
             socketService.startSocket(linkRouter.routerPort);
             TCPServer.routerConnection.add(new RouterConnection(linkRouter, socketService.getSocket()));
-            socketService.send(Request.send(ClientType.ROUTER,"","Initialize",linkRouter.name(),TCPServer.routerEnum.name()));
-            while (!socketService.isClosed()){
+            socketService.send(Request.send(ClientType.ROUTER, "", "Initialize", TCPServer.routerEnum.name(), linkRouter.name(), Operation.REQUEST));
+            while (!socketService.isClosed()) {
                 Request request = new Request(socketService.receive());
-                System.out.println("Recebeu informação de "+linkRouter.name()+" link router: "+request.getMessage());
-                if(request.getMessage().equals("RESPONSE")){
-                    if(request.getType().name().equals(ClientType.ROUTER.name()) && request.getMessage().equals("Initialize")){
-                        System.out.println("Socket inicializado com sucesso com o "+linkRouter.name());
+                System.out.println("Recebeu informação de " + linkRouter.name() + " link router: " + request.getMessage());
+                if (request.getOperation().equals(Operation.RESPONSE)) {
+                    if (request.getType().name().equals(ClientType.ROUTER.name()) && request.getMessage().equals("Initialize")) {
+                        System.out.println("Socket inicializado com sucesso com o " + linkRouter.name());
                     }
                     continue;
                 }

@@ -25,18 +25,18 @@ class Connection extends Thread {
                 String data = in.readUTF();
                 Request request = new Request(data);
 
-                if(request.getMessage().equals("RESPONSE")){
+                if(request.getOperation().equals(Operation.RESPONSE)){
                     return;
                 }
 
                 if(request.getType().name().equals(ClientType.ROUTER.name())) {
                     Message.resolveRouter(request, this.socket);
-                    out.writeUTF(Request.send(ClientType.ROUTER,request.getInterest(),request.getMessage(),request.getTo(),request.getFrom()));
+                    out.writeUTF(Request.send(ClientType.ROUTER,request.getInterest(),request.getMessage(),request.getTo(),request.getFrom(),Operation.RESPONSE));
                     return;
                 }
 
                 Message.resolveClient(request, this.socket);
-                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getTo(),request.getFrom()));
+                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getTo(),request.getFrom(),Operation.RESPONSE));
             }
         } catch(EOFException e) {
             System.out.println("EOF:"+e.getMessage());

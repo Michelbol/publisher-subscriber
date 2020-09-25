@@ -14,7 +14,7 @@ public class TCPSubscriber {
         String[] config = setupSubscriberView.exec();
         try {
             socketService.startSocket(routerEnum.routerPort);
-            socketService.send(Request.send(ClientType.SUBSCRIBER,config[1],"",config[0],routerEnum.name()));
+            socketService.send(Request.send(ClientType.SUBSCRIBER,config[1],"",config[0],routerEnum.name(),Operation.REQUEST));
             while (!socketService.isClosed()){
                 System.out.println("Resposta do servidor: "+ socketService.receive());
             }

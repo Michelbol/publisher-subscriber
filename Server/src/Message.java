@@ -15,7 +15,7 @@ class Message extends Thread{
     static void resolveClient(Request request, Socket socket) throws IOException {
         SendService sendService = new SendService();
         if(request.getType().name().equals(ClientType.SUBSCRIBER.toString())){
-            System.out.println("Criado novo Inscrito: "+request.getTo());
+            System.out.println("Criado novo Inscrito: "+request.getFrom());
             Subscriber subscriber = new Subscriber(request.getFrom(), request.getInterest(), socket);
             TCPServer.subscribers.add(subscriber);
             sendService.sendSubscriberToRouters(request);
@@ -46,18 +46,18 @@ class Message extends Thread{
             Request request = new Request(this.data);
             DataOutputStream out = new DataOutputStream(this.clientSocket.getOutputStream());
 
-            if(request.getMessage().equals("RESPONSE")){
+            if(request.getOperation().equals(Operation.RESPONSE)){
                 return;
             }
 
             if(request.getType().name().equals(ClientType.ROUTER.name())) {
                 resolveRouter(request, this.clientSocket);
-                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo()));
+                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo(),Operation.RESPONSE));
                 return;
             }
 
             resolveClient(request, clientSocket);
-            out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo()));
+            out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo(),Operation.RESPONSE));
         }catch (IOException e){
             e.printStackTrace();
         }
