@@ -28,10 +28,6 @@ class SendService {
 
     void sendSubscriberToRouters(Request request) throws IOException {
         for (RouterConnection routerConnection: TCPServer.routerConnection){
-            if (routerConnection != null){
-                System.out.println("Primeiro valor: "+routerConnection.getRouterEnum().name());
-            }
-            System.out.println("Segundo valor:"+request.getFrom());
             if (routerConnection != null && !routerConnection.getRouterEnum().name().equals(request.getFrom())){
                 System.out.println("Enviando valor para: "+routerConnection.getRouterEnum().name());
                 Socket routerSocket = routerConnection.getSocket();

@@ -24,7 +24,9 @@ class Message extends Thread{
         System.out.println("Publisher enviou dados para o interesse: "+request.getInterest() + " Mensagem: "+ request.getMessage());
         sendService.sendMessageToSubscriberByInterest(request);
         sendService.sendMessageToRouterByInterest(request);
-        sendService.sendSubscriberToRouters(request);
+        if(!request.getType().name().equals(ClientType.PUBLISHER.name())){
+            sendService.sendSubscriberToRouters(request);
+        }
     }
 
     static void resolveRouter(Request request, Socket socket) throws IOException {
