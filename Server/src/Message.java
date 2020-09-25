@@ -1,35 +1,65 @@
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-class Message {
+class Message extends Thread{
+    private final String data;
+    private final Socket clientSocket;
 
-    static void resolve(String[] information, Socket socket) throws IOException {
-        if(information[0].equals("RESPONSE")){
+    public Message(String data, Socket clientSocket) {
+        this.data = data;
+        this.clientSocket = clientSocket;
+        this.start();
+    }
+
+    static void resolveClient(Request request, Socket socket) throws IOException {
+        SendService sendService = new SendService();
+        if(request.getType().name().equals(ClientType.SUBSCRIBER.toString())){
+            System.out.println("Criado novo Inscrito: "+request.getTo());
+            Subscriber subscriber = new Subscriber(request.getFrom(), request.getInterest(), socket);
+            TCPServer.subscribers.add(subscriber);
+            sendService.sendSubscriberToRouters(request);
             return;
         }
+
+        System.out.println("Publisher enviou dados para o interesse: "+request.getInterest());
+        sendService.sendMessageToSubscriberByInterest(request);
+        sendService.sendMessageToRouterByInterest(request);
+    }
+
+    static void resolveRouter(Request request, Socket socket) throws IOException {
         SendService sendService = new SendService();
-        if(information[0].equals(ClientType.SUBSCRIBER.toString())){
-            System.out.println("Criado novo Inscrito: "+information[1]);
-            Subscriber subscriber = new Subscriber(information[1], information[2], socket);
-            TCPServer.subscribers.add(subscriber);
-            sendService.sendSubscriberToRouters(information);
-        } else
-        if(information[0].equals(ClientType.PUBLISHER.toString())){
-            System.out.println("Publisher enviou dados para o interesse: "+information[1]);
-            sendService.sendMessageToSubscriberByInterest(information[1], information[2]);
-            sendService.sendMessageToRouterByInterest(information[1], information[0]+"|"+information[1]+"|"+information[2]);
-        } else
-        if(information[0].equals(ClientType.ROUTER.toString())){
-            if (information[1].equals("Initialize")){
-                System.out.println("Conectado a um novo socket "+information[2]);
-                TCPServer.routerConnection.add(new RouterConnection(RouterEnum.valueOf(information[2]),socket));
-//                new ReceiveMessage(socket);
+        if (request.getMessage().equals("Initialize")){
+            System.out.println("Conectado a um novo socket "+request.getFrom());
+            TCPServer.routerConnection.add(new RouterConnection(RouterEnum.valueOf(request.getFrom()),socket));
+            new ReceiveMessage(socket);
+        }
+        else {
+            System.out.println("Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
+            TCPServer.routers.add(new Router(request.getInterest(), socket, RouterEnum.valueOf(request.getFrom())));
+            sendService.sendSubscriberToRouters(request);
+        }
+    }
+
+    public void run(){
+        try{
+            Request request = new Request(this.data);
+            DataOutputStream out = new DataOutputStream(this.clientSocket.getOutputStream());
+
+            if(request.getMessage().equals("RESPONSE")){
+                return;
             }
-            else {
-                System.out.println("Adicionado a um socket ativo um interesse: "+information[3]);
-                TCPServer.routers.add(new Router(information[3], socket, RouterEnum.valueOf(information[1])));
-                sendService.sendSubscriberToRouters(information);
+
+            if(request.getType().name().equals(ClientType.ROUTER.name())) {
+                resolveRouter(request, this.clientSocket);
+                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo()));
+                return;
             }
+
+            resolveClient(request, clientSocket);
+            out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getFrom(),request.getTo()));
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 }

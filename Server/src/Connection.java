@@ -23,8 +23,20 @@ class Connection extends Thread {
         try {
             while(!this.socket.isClosed()){
                 String data = in.readUTF();
-                Message.resolve(TCPServer.splitMessage(data), this.socket);
-                out.writeUTF("RESPONSE|"+data);
+                Request request = new Request(data);
+
+                if(request.getMessage().equals("RESPONSE")){
+                    return;
+                }
+
+                if(request.getType().name().equals(ClientType.ROUTER.name())) {
+                    Message.resolveRouter(request, this.socket);
+                    out.writeUTF(Request.send(ClientType.ROUTER,request.getInterest(),request.getMessage(),request.getTo(),request.getFrom()));
+                    return;
+                }
+
+                Message.resolveClient(request, this.socket);
+                out.writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getTo(),request.getFrom()));
             }
         } catch(EOFException e) {
             System.out.println("EOF:"+e.getMessage());

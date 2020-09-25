@@ -15,7 +15,7 @@ public class TCPPublisher {
         String[] config = setupPublisherView.exec();
         try {
             socketService.startSocket(routerEnum.routerPort);
-            socketService.send(ClientType.PUBLISHER+"|"+config[0]+"|"+config[1]);
+            socketService.send(Request.send(ClientType.PUBLISHER,config[0],config[1],"",routerEnum.name()));
             while (!socketService.isClosed()){
                 System.out.println("Recebido Mensagem: "+socketService.receive());
             }

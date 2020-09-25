@@ -18,7 +18,7 @@ public class TCPServer {
                 linkWithRouter();
             }
 
-            new Thread(TCPServer::acceptConnections).start();
+            acceptConnections();
         } catch(IOException e) {
             System.out.println("Listen:"+e.getMessage());
         }
@@ -34,7 +34,9 @@ public class TCPServer {
         try{
             while(true) {
                 Socket clientSocket = listenSocket.accept();
-                new Connection(clientSocket);
+                DataInputStream in = new DataInputStream(clientSocket.getInputStream());
+                String data = in.readUTF();
+                new Message(data,clientSocket);
             }
         } catch(IOException e) {
             System.out.println("Listen:"+e.getMessage());

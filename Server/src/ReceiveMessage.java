@@ -15,8 +15,7 @@ public class ReceiveMessage extends Thread {
         try{
             while(!socket.isClosed()){
                 DataInputStream in = new DataInputStream(this.socket.getInputStream());
-                Message.resolve(TCPServer.splitMessage(in.readUTF()), this.socket);
-                System.out.println("Receive message end");
+                Message.resolveRouter(new Request(in.readUTF()), this.socket);
             }
         }catch (IOException e){
             e.printStackTrace();
