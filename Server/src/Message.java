@@ -14,17 +14,17 @@ class Message extends Thread{
 
     static void resolveClient(Request request, Socket socket) throws IOException {
         SendService sendService = new SendService();
-        if(request.getType().name().equals(ClientType.SUBSCRIBER.toString())){
-            System.out.println("Criado novo Inscrito: "+request.getFrom());
+        if(request.getType().name().equals(ClientType.SUBSCRIBER.name())){
+            System.out.println("Criado novo Inscrito: "+request.getFrom()+" Interesse: "+request.getInterest());
             Subscriber subscriber = new Subscriber(request.getFrom(), request.getInterest(), socket);
             TCPServer.subscribers.add(subscriber);
             sendService.sendSubscriberToRouters(request);
             return;
         }
-
-        System.out.println("Publisher enviou dados para o interesse: "+request.getInterest());
+        System.out.println("Publisher enviou dados para o interesse: "+request.getInterest() + " Mensagem: "+ request.getMessage());
         sendService.sendMessageToSubscriberByInterest(request);
         sendService.sendMessageToRouterByInterest(request);
+        sendService.sendSubscriberToRouters(request);
     }
 
     static void resolveRouter(Request request, Socket socket) throws IOException {
@@ -35,9 +35,12 @@ class Message extends Thread{
             new ReceiveMessage(socket);
         }
         else {
-            System.out.println("Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
-            TCPServer.routers.add(new Router(request.getInterest(), socket, RouterEnum.valueOf(request.getFrom())));
-            sendService.sendSubscriberToRouters(request);
+            RouterEnum from = RouterEnum.valueOf(request.getFrom());
+            if(TCPServer.canAddNewRouter(request.getInterest(), from)){
+                System.out.println("[Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
+                TCPServer.routers.add(new Router(request.getInterest(), socket, from));
+                sendService.sendSubscriberToRouters(request);
+            }
         }
     }
 

@@ -46,4 +46,8 @@ public class TCPServer {
     static String[] splitMessage(String information){
         return information.split("\\|");
     }
+
+    static boolean canAddNewRouter(String interest, RouterEnum routerEnum){
+        return routers.stream().noneMatch(router -> router.getInterest().equals(interest) && router.getRouterEnum() == routerEnum);
+    }
 }

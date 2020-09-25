@@ -27,13 +27,13 @@ public class LinkRouter extends Thread {
                     continue;
                 }
                 SendService sendService = new SendService();
-                if (!request.getType().name().equals("PUBLISHER")) {
-                    System.out.println("Adicionado no socket " + request.getFrom() + " um interesse: " + request.getInterest());
-                    TCPServer.routers.add(new Router(request.getInterest(), socketService.getSocket(), RouterEnum.valueOf(request.getFrom())));
-                }
                 sendService.sendMessageToSubscriberByInterest(request);
                 sendService.sendMessageToRouterByInterest(request);
                 sendService.sendSubscriberToRouters(request);
+                if (!request.getType().name().equals("PUBLISHER")) {
+                    System.out.println("[Link Router] Adicionado no socket " + request.getFrom() + " um interesse: " + request.getInterest());
+                    TCPServer.routers.add(new Router(request.getInterest(), socketService.getSocket(), RouterEnum.valueOf(request.getFrom())));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
