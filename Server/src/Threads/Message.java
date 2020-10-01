@@ -50,15 +50,15 @@ public class Message extends Thread{
             return;
         }
         RouterEnum from = RouterEnum.valueOf(request.getFrom());
-        if(TCPServer.canAddNewRouter(request.getInterest(), from)){
-            System.out.println("[Threads.Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
-            TCPServer.routers.add(new Router(request.getInterest(), socket, from));
-            sendService.sendSubscriberToRouterConnections(request);
+        if(request.getType().equals(ClientType.PUBLISHER)){
+            System.out.println("Recebido Mensagem Publisher: "+ request.getMessage()+" - Interesse:"+request.getInterest());
+            sendService.sendMessageToSubscriberByInterest(request);
+            sendService.sendMessageToRouterByInterestWithoutOrigin(request);
         }else{
-            if(request.getType().equals(ClientType.PUBLISHER)){
-                System.out.println("Recebido Mensagem Publisher: "+ request.getMessage()+" - Interesse:"+request.getInterest());
-                sendService.sendMessageToSubscriberByInterest(request);
-                sendService.sendMessageToRouterByInterestWithoutOrigin(request);
+            if(TCPServer.canAddNewRouter(request.getInterest(), from)){
+                System.out.println("[Threads.Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
+                TCPServer.routers.add(new Router(request.getInterest(), socket, from));
+                sendService.sendSubscriberToRouterConnections(request);
             }else{
                 System.out.println("Mensagem não mapeada");
                 System.out.println(request.toString());

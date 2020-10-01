@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Services/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Services/SendService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/Threads/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/Message.java" afterDir="false" />
     </list>
@@ -87,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.P2">
+  <component name="RunManager" selected="Application.P1">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -232,7 +231,7 @@
       <workItem from="1600725869351" duration="10643000" />
       <workItem from="1600742419667" duration="22108000" />
       <workItem from="1600985398892" duration="8897000" />
-      <workItem from="1601425170416" duration="12408000" />
+      <workItem from="1601425170416" duration="13320000" />
     </task>
     <servers />
   </component>

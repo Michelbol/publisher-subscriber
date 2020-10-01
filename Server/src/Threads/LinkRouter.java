@@ -34,7 +34,7 @@ public class LinkRouter extends Thread {
                     continue;
                 }
                 SendService sendService = new SendService();
-                sendService.sendMessageToRouterByInterest(request);
+                sendService.sendMessageToRouterByInterestWithoutOrigin(request);
                 if(request.getType().name().equals("PUBLISHER")){
                     sendService.sendMessageToSubscriberByInterest(request);
                 }
