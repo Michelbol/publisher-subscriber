@@ -3,27 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/ClientType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/RouterEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/RouterEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Services/SocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Services/SocketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Publisher/TCPPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Views/SetupPublisherView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Publisher/Views/SetupPublisherView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/ClientType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ReceiveMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/ReceiveMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/RouterConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/RouterConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/RouterEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/RouterEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Services/SendService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Main/TCPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Services/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Services/SendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Threads/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/Message.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.P1">
+  <component name="RunManager" selected="Application.P2">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
@@ -250,7 +232,7 @@
       <workItem from="1600725869351" duration="10643000" />
       <workItem from="1600742419667" duration="22108000" />
       <workItem from="1600985398892" duration="8897000" />
-      <workItem from="1601425170416" duration="9516000" />
+      <workItem from="1601425170416" duration="12408000" />
     </task>
     <servers />
   </component>

@@ -35,9 +35,22 @@ public class SendService {
         }
     }
 
-    public void sendSubscriberToRouters(Request request) throws IOException {
+    public void sendMessageToRouterByInterestWithoutOrigin(Request request) throws IOException {
+        Set<Router> routers = TCPServer.routers.stream()
+                .filter(subscriber -> subscriber.getInterest().equals(request.getInterest()) && !subscriber.getRouterEnum().name().equals(request.getFrom()))
+                .collect(Collectors.toSet());
+        for (Router router: routers) {
+            System.out.println("Enviando valor para: "+router.getRouterEnum());
+            (new DataOutputStream(router.getSocket().getOutputStream())).writeUTF(Request.send(request.getType(),request.getInterest(),request.getMessage(),request.getTo(),router.getRouterEnum().name(),Operation.REQUEST));
+        }
+    }
+
+    public void sendSubscriberToRouterConnections(Request request) throws IOException {
         for (RouterConnection routerConnection : TCPServer.routerConnection){
             if (routerConnection != null && !routerConnection.getRouterEnum().name().equals(request.getFrom())){
+                if(!TCPServer.canAddNewRouter(request.getInterest(), routerConnection.getRouterEnum()) && !request.getType().equals(ClientType.SUBSCRIBER)){
+                    continue;
+                }
                 System.out.println("Enviando valor para: "+routerConnection.getRouterEnum().name());
                 Socket routerSocket = routerConnection.getSocket();
                 DataOutputStream out = new DataOutputStream(routerSocket.getOutputStream());

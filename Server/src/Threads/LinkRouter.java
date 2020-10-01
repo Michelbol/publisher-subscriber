@@ -6,7 +6,6 @@ import Enums.RouterEnum;
 import Main.TCPServer;
 import Models.Request;
 import Models.Router;
-import Models.RouterConnection;
 import Services.SendService;
 import Services.SocketService;
 import java.io.IOException;
@@ -35,12 +34,12 @@ public class LinkRouter extends Thread {
                     continue;
                 }
                 SendService sendService = new SendService();
-                sendService.sendSubscriberToRouters(request);
                 sendService.sendMessageToRouterByInterest(request);
                 if(request.getType().name().equals("PUBLISHER")){
                     sendService.sendMessageToSubscriberByInterest(request);
                 }
                 if (!request.getType().name().equals("PUBLISHER")) {
+                    sendService.sendSubscriberToRouterConnections(request);
                     System.out.println("[Link Models.Router] Adicionado no socket " + request.getFrom() + " um interesse: " + request.getInterest());
                     TCPServer.routers.add(new Router(request.getInterest(), socketService.getSocket(), RouterEnum.valueOf(request.getFrom())));
                 }

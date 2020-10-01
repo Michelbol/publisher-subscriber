@@ -30,14 +30,14 @@ public class Message extends Thread{
             System.out.println("Criado novo Inscrito: "+request.getFrom()+" Interesse: "+request.getInterest());
             Subscriber subscriber = new Subscriber(request.getFrom(), request.getInterest(), socket);
             TCPServer.subscribers.add(subscriber);
-            sendService.sendSubscriberToRouters(request);
+            sendService.sendSubscriberToRouterConnections(request);
             return;
         }
         System.out.println("Publisher enviou dados para o interesse: "+request.getInterest() + " Mensagem: "+ request.getMessage());
         sendService.sendMessageToSubscriberByInterest(request);
         sendService.sendMessageToRouterByInterest(request);
         if(!request.getType().name().equals(ClientType.PUBLISHER.name())){
-            sendService.sendSubscriberToRouters(request);
+            sendService.sendSubscriberToRouterConnections(request);
         }
     }
 
@@ -53,9 +53,16 @@ public class Message extends Thread{
         if(TCPServer.canAddNewRouter(request.getInterest(), from)){
             System.out.println("[Threads.Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
             TCPServer.routers.add(new Router(request.getInterest(), socket, from));
-            sendService.sendSubscriberToRouters(request);
+            sendService.sendSubscriberToRouterConnections(request);
         }else{
-            System.out.println("Mensagem não mapeada");
+            if(request.getType().equals(ClientType.PUBLISHER)){
+                System.out.println("Recebido Mensagem Publisher: "+ request.getMessage()+" - Interesse:"+request.getInterest());
+                sendService.sendMessageToSubscriberByInterest(request);
+                sendService.sendMessageToRouterByInterestWithoutOrigin(request);
+            }else{
+                System.out.println("Mensagem não mapeada");
+                System.out.println(request.toString());
+            }
         }
     }
 
