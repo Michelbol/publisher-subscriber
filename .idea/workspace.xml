@@ -3,9 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="c6894a3c-8bc4-4eac-bf31-0c9436390689" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/LinkRouter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/TCPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/ClientType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/RouterEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Enums/RouterEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Services/SocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Services/SocketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Publisher/TCPPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Subscriber/TCPSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/Subscriber/Views/SetupPublisherView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/Publisher/Views/SetupPublisherView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ClientType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/ClientType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/LinkRouter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/LinkRouter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ReceiveMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Threads/ReceiveMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/RouterConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/RouterConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/RouterEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Enums/RouterEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/SendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Services/SendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Models/Subscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Main/TCPServer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +62,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="jdk.selected.PLUGIN_MODULE" value="IntelliJ IDEA IU-182.4323.46" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server/src/Enums" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -54,23 +72,25 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joaov\git\Facul\sistemaDistribuido\publisher-subscriber\Server" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\" />
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\C" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Subscriber" />
       <recent name="Services" />
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\" />
-      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\C" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\Server\src\Enums" />
+      <recent name="C:\Users\User\Desktop\Projetos\Java\PublishSubscriber\Server\src" />
+      <recent name="C:\Users\joaov\git\Facul\sistemaDistribuido\publisher-subscriber\Server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,14 +105,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.I1">
+  <component name="RunManager" selected="Application.P1">
     <configuration name="A1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Subscriber.TCPSubscriber" />
       <module name="Client" />
       <option name="PROGRAM_PARAMETERS" value="I2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Subscriber.*" />
+          <option name="PATTERN" value="Publisher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,7 +126,7 @@
       <option name="PROGRAM_PARAMETERS" value="I2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Subscriber.*" />
+          <option name="PATTERN" value="Publisher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,7 +140,7 @@
       <option name="PROGRAM_PARAMETERS" value="I4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Subscriber.*" />
+          <option name="PATTERN" value="Publisher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,7 +151,7 @@
     <configuration name="I1" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <option name="MAIN_CLASS_NAME" value="Main.TCPServer" />
       <module name="Server" />
       <option name="PROGRAM_PARAMETERS" value="I1" />
       <method v="2">
@@ -141,7 +161,7 @@
     <configuration name="I2" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <option name="MAIN_CLASS_NAME" value="Main.TCPServer" />
       <module name="Server" />
       <option name="PROGRAM_PARAMETERS" value="I2" />
       <method v="2">
@@ -151,7 +171,7 @@
     <configuration name="I3" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <option name="MAIN_CLASS_NAME" value="Main.TCPServer" />
       <module name="Server" />
       <option name="PROGRAM_PARAMETERS" value="I3" />
       <method v="2">
@@ -161,7 +181,7 @@
     <configuration name="I4" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="TCPServer" />
+      <option name="MAIN_CLASS_NAME" value="Main.TCPServer" />
       <module name="Server" />
       <option name="PROGRAM_PARAMETERS" value="I4" />
       <method v="2">
@@ -169,12 +189,12 @@
       </method>
     </configuration>
     <configuration name="P1" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
+      <option name="MAIN_CLASS_NAME" value="Publisher.TCPPublisher" />
       <module name="Client" />
       <option name="PROGRAM_PARAMETERS" value="I1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Subscriber.*" />
+          <option name="PATTERN" value="Publisher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -183,12 +203,12 @@
       </method>
     </configuration>
     <configuration name="P2" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Subscriber.TCPPublisher" />
+      <option name="MAIN_CLASS_NAME" value="Publisher.TCPPublisher" />
       <module name="Client" />
       <option name="PROGRAM_PARAMETERS" value="I3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Subscriber.*" />
+          <option name="PATTERN" value="Publisher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -228,7 +248,9 @@
       <workItem from="1600213435201" duration="5783000" />
       <workItem from="1600304530225" duration="24255000" />
       <workItem from="1600725869351" duration="10643000" />
-      <workItem from="1600742419667" duration="21419000" />
+      <workItem from="1600742419667" duration="22108000" />
+      <workItem from="1600985398892" duration="8897000" />
+      <workItem from="1601425170416" duration="9516000" />
     </task>
     <servers />
   </component>

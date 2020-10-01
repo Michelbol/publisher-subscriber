@@ -1,7 +1,11 @@
-package Subscriber;
+package Publisher;
 
-import Subscriber.Services.SocketService;
-import Subscriber.Views.SetupPublisherView;
+import Enums.ClientType;
+import Enums.Operation;
+import Subscriber.Request;
+import Enums.RouterEnum;
+import Services.SocketService;
+import Publisher.Views.SetupPublisherView;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -15,7 +19,7 @@ public class TCPPublisher {
         String[] config = setupPublisherView.exec();
         try {
             socketService.startSocket(routerEnum.routerPort);
-            socketService.send(Request.send(ClientType.PUBLISHER,config[0],config[1],"",routerEnum.name(),Operation.REQUEST));
+            socketService.send(Request.send(ClientType.PUBLISHER,config[0],config[1],"",routerEnum.name(), Operation.REQUEST));
             while (!socketService.isClosed()){
                 System.out.println("Recebido Mensagem: "+socketService.receive());
             }

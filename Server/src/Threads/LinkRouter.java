@@ -1,24 +1,32 @@
-import Services.SocketService;
+package Threads;
 
+import Enums.ClientType;
+import Enums.Operation;
+import Enums.RouterEnum;
+import Main.TCPServer;
+import Models.Request;
+import Models.Router;
+import Models.RouterConnection;
+import Services.SendService;
+import Services.SocketService;
 import java.io.IOException;
 
 public class LinkRouter extends Thread {
 
     private RouterEnum linkRouter;
+    private SocketService socketService;
+    private Request request;
 
-    LinkRouter(RouterEnum linkRouter) {
+    public LinkRouter(RouterEnum linkRouter, SocketService socketService) {
         this.linkRouter = linkRouter;
+        this.socketService = socketService;
         this.start();
     }
 
     public void run() {
-        SocketService socketService = new SocketService();
         try {
-            socketService.startSocket(linkRouter.routerPort);
-            TCPServer.routerConnection.add(new RouterConnection(linkRouter, socketService.getSocket()));
-            socketService.send(Request.send(ClientType.ROUTER, "", "Initialize", TCPServer.routerEnum.name(), linkRouter.name(), Operation.REQUEST));
             while (!socketService.isClosed()) {
-                Request request = new Request(socketService.receive());
+                request = new Request(socketService.receive());
                 System.out.println("Recebeu informação de " + linkRouter.name() + " link router: " + request.getMessage());
                 if (request.getOperation().equals(Operation.RESPONSE)) {
                     if (request.getType().name().equals(ClientType.ROUTER.name()) && request.getMessage().equals("Initialize")) {
@@ -27,11 +35,13 @@ public class LinkRouter extends Thread {
                     continue;
                 }
                 SendService sendService = new SendService();
-                sendService.sendMessageToSubscriberByInterest(request);
-                sendService.sendMessageToRouterByInterest(request);
                 sendService.sendSubscriberToRouters(request);
+                sendService.sendMessageToRouterByInterest(request);
+                if(request.getType().name().equals("PUBLISHER")){
+                    sendService.sendMessageToSubscriberByInterest(request);
+                }
                 if (!request.getType().name().equals("PUBLISHER")) {
-                    System.out.println("[Link Router] Adicionado no socket " + request.getFrom() + " um interesse: " + request.getInterest());
+                    System.out.println("[Link Models.Router] Adicionado no socket " + request.getFrom() + " um interesse: " + request.getInterest());
                     TCPServer.routers.add(new Router(request.getInterest(), socketService.getSocket(), RouterEnum.valueOf(request.getFrom())));
                 }
             }

@@ -1,6 +1,9 @@
 package Subscriber;
 
-import Subscriber.Services.SocketService;
+import Enums.ClientType;
+import Enums.Operation;
+import Enums.RouterEnum;
+import Services.SocketService;
 import Subscriber.Views.SetupSubscriberView;
 import java.io.EOFException;
 import java.io.IOException;
@@ -14,7 +17,7 @@ public class TCPSubscriber {
         String[] config = setupSubscriberView.exec();
         try {
             socketService.startSocket(routerEnum.routerPort);
-            socketService.send(Request.send(ClientType.SUBSCRIBER,config[1],"",config[0],routerEnum.name(),Operation.REQUEST));
+            socketService.send(Request.send(ClientType.SUBSCRIBER,config[1],"",config[0],routerEnum.name(), Operation.REQUEST));
             while (!socketService.isClosed()){
                 System.out.println("Resposta do servidor: "+ socketService.receive());
             }

@@ -1,4 +1,9 @@
-class Request {
+package Models;
+
+import Enums.ClientType;
+import Enums.Operation;
+
+public class Request {
     private ClientType type;
     private String interest;
     private String message;
@@ -26,7 +31,7 @@ class Request {
         this.operation = Operation.valueOf(requestArray[5]);
     }
 
-    static public String send(ClientType type, String interest, String message, String from, String to, Operation operation){
+    public static String send(ClientType type, String interest, String message, String from, String to, Operation operation){
         return type.name()+"|"+to+"|"+from+"|"+interest+"|"+message+"|"+operation.name();
     }
 
@@ -34,47 +39,35 @@ class Request {
         return type;
     }
 
-    public void setType(ClientType type) {
-        this.type = type;
-    }
-
     public String getInterest() {
         return interest;
-    }
-
-    public void setInterest(String interest) {
-        this.interest = interest;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public String getFrom() {
         return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
     }
 
     public String getTo() {
         return to;
     }
 
-    public void setTo(String to) {
-        this.to = to;
-    }
-
     public Operation getOperation() {
         return operation;
     }
 
-    public void setOperation(Operation operation) {
-        this.operation = operation;
+    @Override
+    public String toString() {
+        return "Request{" +
+                "type=" + type +
+                ", interest='" + interest + '\'' +
+                ", message='" + message + '\'' +
+                ", from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", operation=" + operation +
+                '}';
     }
 }

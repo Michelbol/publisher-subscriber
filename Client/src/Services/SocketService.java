@@ -1,4 +1,4 @@
-package Subscriber.Services;
+package Services;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

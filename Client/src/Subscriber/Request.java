@@ -1,6 +1,9 @@
 package Subscriber;
 
-class Request {
+import Enums.ClientType;
+import Enums.Operation;
+
+public class Request {
     private ClientType type;
     private String interest;
     private String message;

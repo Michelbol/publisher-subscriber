@@ -1,4 +1,4 @@
-package Subscriber;
+package Enums;
 
 public enum ClientType {
     SUBSCRIBER, PUBLISHER

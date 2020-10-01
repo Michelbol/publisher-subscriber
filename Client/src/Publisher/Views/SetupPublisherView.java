@@ -1,4 +1,4 @@
-package Subscriber.Views;
+package Publisher.Views;
 
 import javax.swing.*;
 

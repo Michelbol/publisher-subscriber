@@ -1,14 +1,16 @@
+package Models;
+
+import Enums.RouterEnum;
+
 import java.net.Socket;
 
-public class Router {
-    private String interest;
-    private Socket socket;
+public class RouterConnection {
     private RouterEnum routerEnum;
+    private Socket socket;
 
-    public Router(String interest, Socket socket, RouterEnum routerEnum) {
-        this.interest = interest;
-        this.socket = socket;
+    public RouterConnection(RouterEnum routerEnum, Socket socket) {
         this.routerEnum = routerEnum;
+        this.socket = socket;
     }
 
     public RouterEnum getRouterEnum() {
@@ -17,14 +19,6 @@ public class Router {
 
     public void setRouterEnum(RouterEnum routerEnum) {
         this.routerEnum = routerEnum;
-    }
-
-    public String getInterest() {
-        return interest;
-    }
-
-    public void setInterest(String interest) {
-        this.interest = interest;
     }
 
     public Socket getSocket() {

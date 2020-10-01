@@ -1,12 +1,24 @@
+package Main;
+
+import Enums.ClientType;
+import Enums.Operation;
+import Enums.RouterEnum;
+import Models.Request;
+import Models.Router;
+import Models.RouterConnection;
+import Models.Subscriber;
+import Services.SocketService;
+import Threads.LinkRouter;
+import Threads.Message;
 import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
 public class TCPServer {
-    static ArrayList<Subscriber> subscribers = new ArrayList<>();
-    static ArrayList<Router> routers = new ArrayList<>();
-    static ArrayList<RouterConnection> routerConnection = new ArrayList<>();
-    static RouterEnum routerEnum;
+    public static ArrayList<Subscriber> subscribers = new ArrayList<>();
+    public static ArrayList<Router> routers = new ArrayList<>();
+    public static ArrayList<RouterConnection> routerConnection = new ArrayList<>();
+    public static RouterEnum routerEnum;
     private static ServerSocket listenSocket;
 
     public static void main (String[] args) {
@@ -26,7 +38,15 @@ public class TCPServer {
 
     private static void linkWithRouter() {
         for (RouterEnum linkRouter : routerEnum.linkRouters){
-            new LinkRouter(linkRouter);
+            SocketService socketService = new SocketService();
+            try{
+                socketService.startSocket(linkRouter.routerPort);
+                TCPServer.routerConnection.add(new RouterConnection(linkRouter, socketService.getSocket()));
+                socketService.send(Request.send(ClientType.ROUTER, "", "Initialize", TCPServer.routerEnum.name(), linkRouter.name(), Operation.REQUEST));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            new LinkRouter(linkRouter, socketService);
         }
     }
 
@@ -43,11 +63,7 @@ public class TCPServer {
         }
     }
 
-    static String[] splitMessage(String information){
-        return information.split("\\|");
-    }
-
-    static boolean canAddNewRouter(String interest, RouterEnum routerEnum){
+    public static boolean canAddNewRouter(String interest, RouterEnum routerEnum){
         return routers.stream().noneMatch(router -> router.getInterest().equals(interest) && router.getRouterEnum() == routerEnum);
     }
 }

@@ -1,8 +1,20 @@
+package Threads;
+
+import Enums.ClientType;
+import Enums.Operation;
+import Enums.RouterEnum;
+import Main.TCPServer;
+import Models.Request;
+import Models.Router;
+import Models.RouterConnection;
+import Models.Subscriber;
+import Services.SendService;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-class Message extends Thread{
+public class Message extends Thread{
     private final String data;
     private final Socket clientSocket;
 
@@ -12,7 +24,7 @@ class Message extends Thread{
         this.start();
     }
 
-    static void resolveClient(Request request, Socket socket) throws IOException {
+    private static void resolveClient(Request request, Socket socket) throws IOException {
         SendService sendService = new SendService();
         if(request.getType().name().equals(ClientType.SUBSCRIBER.name())){
             System.out.println("Criado novo Inscrito: "+request.getFrom()+" Interesse: "+request.getInterest());
@@ -35,14 +47,15 @@ class Message extends Thread{
             System.out.println("Conectado a um novo socket "+request.getFrom());
             TCPServer.routerConnection.add(new RouterConnection(RouterEnum.valueOf(request.getFrom()),socket));
             new ReceiveMessage(socket);
+            return;
         }
-        else {
-            RouterEnum from = RouterEnum.valueOf(request.getFrom());
-            if(TCPServer.canAddNewRouter(request.getInterest(), from)){
-                System.out.println("[Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
-                TCPServer.routers.add(new Router(request.getInterest(), socket, from));
-                sendService.sendSubscriberToRouters(request);
-            }
+        RouterEnum from = RouterEnum.valueOf(request.getFrom());
+        if(TCPServer.canAddNewRouter(request.getInterest(), from)){
+            System.out.println("[Threads.Message] Adicionado no socket "+request.getFrom()+" um interesse: "+request.getInterest());
+            TCPServer.routers.add(new Router(request.getInterest(), socket, from));
+            sendService.sendSubscriberToRouters(request);
+        }else{
+            System.out.println("Mensagem não mapeada");
         }
     }
 
